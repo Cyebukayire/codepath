@@ -37,7 +37,7 @@ def count_odd_splits_BFS(root):
     return counter
 
 
-def count_odd_split_DFS_inorder(root, res = 0):
+def count_odd_split_DFS_inorder(root):
     """
     
             2
@@ -58,10 +58,11 @@ def count_odd_split_DFS_inorder(root, res = 0):
     
     #     count += 1
     print(root.val)
+    count = 0
     if root.val %2 == 1:
-        res += root.val
+        count += 1
         
-    return res + count_odd_split_DFS_inorder(root.left, res) + count_odd_split_DFS_inorder(root.right, res)
+    return count_odd_split_DFS_inorder(root.left) + count + count_odd_split_DFS_inorder(root.right)
     
     # res.append(root.val)
 
